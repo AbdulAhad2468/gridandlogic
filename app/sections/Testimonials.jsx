@@ -65,6 +65,7 @@ export function Testimonials() {
                 alt="Ammar, CEO of Pixel Nest"
                 fill
                 className="object-cover"
+                unoptimized
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 gradient-glow" />

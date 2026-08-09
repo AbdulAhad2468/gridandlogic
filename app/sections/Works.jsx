@@ -20,6 +20,7 @@ const works = [
     href: "https://abdulahad2468.github.io/sofa-configrator/",
     className: "md:col-span-1",
   },
+  //check//
   {
     title: "Clothing Store",
     category: "E-commerce",
@@ -30,7 +31,7 @@ const works = [
   {
     title: "E-commerce",
     category: "E-commerce",
-    image: "/images/ecomerce%20website.png",
+    image: "/images/ecomerce website.png",
     href: "https://e-commerce-chi-eight-35.vercel.app/",
     className: "md:col-span-1",
   },

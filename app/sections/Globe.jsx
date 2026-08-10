@@ -26,10 +26,10 @@ export function Globe() {
       <Container>
         <ScrollReveal className="mb-12 flex flex-col items-center text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Remote-first. Global reach.
+            We work across the world.
           </h2>
           <p className="mt-3 text-white/60 max-w-xl">
-            We work with teams across continents — from New York to Tokyo.
+            Remote-first, global reach — from New York to Tokyo.
           </p>
         </ScrollReveal>
       </Container>

@@ -31,7 +31,7 @@ const works = [
   {
     title: "E-commerce",
     category: "E-commerce",
-    image: "/images/ecomerce website.png",
+    image: "/images/ecomerce%20website.png",
     href: "https://e-commerce-chi-eight-35.vercel.app/",
     className: "md:col-span-1",
   },

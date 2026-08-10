@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const defaultItems = [
   { label: "Home", href: "#" },
@@ -13,33 +13,59 @@ const defaultItems = [
 export default function SlideTabs({
   items = defaultItems,
   className = "",
+  active,
 }) {
   return (
     <div className={`bg-surface py-20 ${className}`}>
-      <SlideTabsInner items={items} />
+      <SlideTabsInner items={items} active={active} />
     </div>
   );
 }
 
-const SlideTabsInner = ({ items }) => {
+const SlideTabsInner = ({ items, active }) => {
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
     opacity: 0,
   });
+  const [hovering, setHovering] = useState(false);
+  const itemRefs = useRef([]);
+
+  const setPositionFromIndex = (index) => {
+    const ref = itemRefs.current[index];
+    if (!ref) return;
+    const { width } = ref.getBoundingClientRect();
+    setPosition({
+      left: ref.offsetLeft,
+      width,
+      opacity: 1,
+    });
+  };
+
+  useEffect(() => {
+    if (active && !hovering) {
+      const index = items.findIndex((i) => i.label === active);
+      if (index !== -1) setPositionFromIndex(index);
+    }
+  }, [active, items, hovering]);
 
   return (
     <ul
       onMouseLeave={() => {
-        setPosition((pv) => ({
-          ...pv,
-          opacity: 0,
-        }));
+        setHovering(false);
+        const index = active ? items.findIndex((i) => i.label === active) : -1;
+        if (index !== -1) setPositionFromIndex(index);
       }}
       className="relative mx-auto flex w-fit rounded-full border-2 border-border bg-surface-elevated p-1"
     >
-      {items.map((item) => (
-        <Tab key={item.label} item={item} setPosition={setPosition}>
+      {items.map((item, i) => (
+        <Tab
+          key={item.label}
+          item={item}
+          setPosition={setPosition}
+          setHovering={setHovering}
+          setRef={(el) => (itemRefs.current[i] = el)}
+        >
           {item.label}
         </Tab>
       ))}
@@ -49,17 +75,19 @@ const SlideTabsInner = ({ items }) => {
   );
 };
 
-const Tab = ({ item, children, setPosition }) => {
+const Tab = ({ item, children, setPosition, setHovering, setRef }) => {
   const ref = useRef(null);
 
   return (
     <li
-      ref={ref}
+      ref={(el) => {
+        ref.current = el;
+        setRef(el);
+      }}
       onMouseEnter={() => {
+        setHovering(true);
         if (!ref?.current) return;
-
         const { width } = ref.current.getBoundingClientRect();
-
         setPosition({
           left: ref.current.offsetLeft,
           width,

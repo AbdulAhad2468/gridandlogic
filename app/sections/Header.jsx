@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -30,6 +30,36 @@ const scrollTo = (href) => {
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [active, setActive] = useState("Home");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const idToLabel = Object.fromEntries(
+      navLinks.map((l) => [l.href.replace(/^#/, "") || "home", l.label])
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (!visible.length) return;
+        const best = visible.reduce((a, b) =>
+          a.intersectionRatio > b.intersectionRatio ? a : b
+        );
+        const label = idToLabel[best.target.id];
+        if (label) setActive(label);
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    navLinks.forEach((l) => {
+      const id = l.href.replace(/^#/, "");
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
@@ -40,7 +70,7 @@ export function Header() {
             <BubbleText text="Grid & Logic" className="text-xl font-bold text-white text-left" />
           </Link>
 
-          <SlideTabs items={navLinks} className="hidden lg:flex py-0 bg-transparent" />
+          <SlideTabs items={navLinks} active={active} className="hidden lg:flex py-0 bg-transparent" />
 
           <div className="hidden lg:block">
             <Button variant="outline" onClick={() => { if (typeof window !== "undefined") window.location.href = "mailto:gridandlogic@gmail.com?subject=Grid%20and%20Logic%20for%20call"; }}>Book a call</Button>
@@ -70,7 +100,7 @@ export function Header() {
                   }}
                   className={cn(
                     "text-sm font-medium",
-                    link.active ? "text-primary" : "text-white/80"
+                    link.label === active ? "text-primary" : "text-white/80"
                   )}
                 >
                   {link.label}

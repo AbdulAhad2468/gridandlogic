@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/app/components/ui/Container";
 import { ScrollReveal } from "@/app/components/animation/ScrollReveal";
-import { LampContainer } from "@/app/components/ui/lamp";
 
 const SocialIcons = {
   Facebook: () => (
@@ -40,11 +39,10 @@ const information = [
 
 export function Footer() {
   return (
-    <LampContainer className="text-white">
-      <footer>
-        <Container>
-          <ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 lg:py-20">
+    <footer className="bg-background text-white">
+      <Container>
+        <ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 lg:py-20">
             <div className="lg:col-span-4">
               <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white">
                 <Image src="/Grid%20%26%20Logic%20(LOGO).svg" alt="Grid &amp; Logic Logo" width={36} height={36} unoptimized style={{ filter: "brightness(0) saturate(100%) invert(1) sepia(1) saturate(5) hue-rotate(180deg)" }} />
@@ -107,7 +105,6 @@ export function Footer() {
           </div>
         </ScrollReveal>
       </Container>
-      </footer>
-    </LampContainer>
+    </footer>
   );
 }

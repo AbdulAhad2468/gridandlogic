@@ -39,8 +39,10 @@ const information = [
 
 export function Footer() {
   return (
-    <footer className="bg-background text-white">
-      <Container>
+    <footer className="relative bg-surface text-white border-t border-border/50 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+      <Container className="relative z-10">
         <ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 lg:py-20">
             <div className="lg:col-span-4">

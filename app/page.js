@@ -4,11 +4,8 @@ import { About } from "@/app/sections/About";
 import { Globe } from "@/app/sections/Globe";
 import { Services } from "@/app/sections/Services";
 import { Works } from "@/app/sections/Works";
-import { AnimatedPin } from "@/app/sections/AnimatedPin";
 import { Process } from "@/app/sections/Process";
 import { Testimonials } from "@/app/sections/Testimonials";
-import { Features } from "@/app/sections/Features";
-import { PointerHighlightDemo } from "@/app/sections/PointerHighlight";
 import { News } from "@/app/sections/News";
 import { CTA } from "@/app/sections/CTA";
 import { Footer } from "@/app/sections/Footer";
@@ -31,18 +28,11 @@ export default function Home() {
           <Works />
         </ScrollReveal>
         <ScrollReveal direction="left">
-          <AnimatedPin />
-        </ScrollReveal>
-        <ScrollReveal direction="right">
           <Process />
-        </ScrollReveal>
-        <ScrollReveal direction="left">
-          <Features />
         </ScrollReveal>
         <ScrollReveal direction="right">
           <Testimonials />
         </ScrollReveal>
-        <PointerHighlightDemo />
         <ScrollReveal direction="left">
           <News />
         </ScrollReveal>

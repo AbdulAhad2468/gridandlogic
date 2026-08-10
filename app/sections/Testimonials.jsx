@@ -117,7 +117,9 @@ export function Testimonials() {
 
           <ScrollReveal delay={0.15} className="relative w-full flex justify-center items-center">
             <div className="relative h-48 w-48 sm:h-60 sm:w-60 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-[1.5rem] overflow-hidden bg-surface/50 border border-border/50">
-              <World data={sampleArcs} globeConfig={globeConfig} />
+              <div className="absolute inset-0">
+                <World data={sampleArcs} globeConfig={globeConfig} />
+              </div>
             </div>
           </ScrollReveal>
         </div>

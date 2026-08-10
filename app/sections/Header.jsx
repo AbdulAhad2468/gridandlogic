@@ -36,7 +36,7 @@ export function Header() {
       <Container>
         <nav className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/Grid%20%26%20Logic%20(LOGO).svg" alt="Grid &amp; Logic Logo" width={36} height={36} unoptimized />
+            <Image src="/Grid%20%26%20Logic%20(LOGO).svg" alt="Grid &amp; Logic Logo" width={36} height={36} unoptimized style={{ filter: "brightness(0) saturate(100%) invert(1) sepia(1) saturate(5) hue-rotate(180deg)" }} />
             <BubbleText text="Grid & Logic" className="text-xl font-bold text-white text-left" />
           </Link>
 

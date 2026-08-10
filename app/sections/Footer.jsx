@@ -45,7 +45,7 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 lg:py-20">
             <div className="lg:col-span-4">
               <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white">
-                <Image src="/Grid%20%26%20Logic%20(LOGO).svg" alt="Grid &amp; Logic Logo" width={36} height={36} unoptimized />
+                <Image src="/Grid%20%26%20Logic%20(LOGO).svg" alt="Grid &amp; Logic Logo" width={36} height={36} unoptimized style={{ filter: "brightness(0) saturate(100%) invert(1) sepia(1) saturate(5) hue-rotate(180deg)" }} />
                 Grid &amp; Logic
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-white/80 max-w-xs">

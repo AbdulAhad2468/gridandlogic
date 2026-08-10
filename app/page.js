@@ -1,9 +1,11 @@
 import { Header } from "@/app/sections/Header";
 import { Hero } from "@/app/sections/Hero";
+import { Stats } from "@/app/sections/Stats";
 import { About } from "@/app/sections/About";
 import { Services } from "@/app/sections/Services";
 import { Works } from "@/app/sections/Works";
 import { Process } from "@/app/sections/Process";
+import { FAQ } from "@/app/sections/FAQ";
 import { Testimonials } from "@/app/sections/Testimonials";
 import { News } from "@/app/sections/News";
 import { CTA } from "@/app/sections/CTA";
@@ -16,6 +18,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <Stats />
         <ScrollReveal direction="right">
           <About />
         </ScrollReveal>
@@ -28,6 +31,7 @@ export default function Home() {
         <ScrollReveal direction="left">
           <Process />
         </ScrollReveal>
+        <FAQ />
         <ScrollReveal direction="right">
           <Testimonials />
         </ScrollReveal>

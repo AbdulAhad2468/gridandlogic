@@ -10,6 +10,7 @@ import { Container } from "@/app/components/ui/Container";
 import { Button } from "@/app/components/ui/Button";
 import { Card } from "@/app/components/ui/Card";
 import { Badge } from "@/app/components/ui/Badge";
+import { EncryptedText } from "@/app/components/ui/encrypted-text";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -116,7 +117,12 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Card className="px-5 py-4">
                 <p className="text-sm text-white/80 max-w-[240px]">
-                  3D websites, product configurators, and online stores built to help brands sell more and ship faster.
+                  <EncryptedText
+                    text="3D websites, product configurators, and online stores built to help brands sell more and ship faster."
+                    encryptedClassName="text-white/30"
+                    revealedClassName="text-white/80"
+                    revealDelayMs={20}
+                  />
                 </p>
               </Card>
               <Button className="shrink-0" onClick={() => { if (typeof window !== "undefined") window.location.href = "mailto:gridandlogic@gmail.com?subject=Grid%20and%20Logic%20for%20call"; }}>Book a call</Button>

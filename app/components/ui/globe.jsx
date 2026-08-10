@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 
-export function World({ data, globeConfig }) {
+export function World({ data, globeConfig, width = "100%", height = "100%" }) {
   const globeRef = useRef();
 
   useEffect(() => {
@@ -39,8 +39,8 @@ export function World({ data, globeConfig }) {
   return (
     <Globe
       ref={globeRef}
-      width="100%"
-      height="100%"
+      width={width}
+      height={height}
       backgroundColor="rgba(0,0,0,0)"
       showAtmosphere={globeConfig?.showAtmosphere}
       atmosphereColor={globeConfig?.atmosphereColor}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Container } from "@/app/components/ui/Container";
 import { Card } from "@/app/components/ui/Card";
 import { SectionTitle } from "@/app/components/ui/SectionTitle";
@@ -87,6 +88,25 @@ function LogoIcon() {
 }
 
 export function Testimonials() {
+  const globeRef = useRef(null);
+  const [size, setSize] = useState({ width: 160, height: 160 });
+
+  useEffect(() => {
+    if (!globeRef.current) return;
+    const update = () => {
+      if (globeRef.current) {
+        setSize({
+          width: globeRef.current.clientWidth,
+          height: globeRef.current.clientHeight,
+        });
+      }
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(globeRef.current);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <section className="bg-background py-20 lg:py-28">
       <Container>
@@ -116,10 +136,16 @@ export function Testimonials() {
           </div>
 
           <ScrollReveal delay={0.15} className="relative w-full flex justify-center items-center">
-            <div className="relative h-40 w-40 sm:h-48 sm:w-48 md:h-60 md:w-60 lg:h-72 lg:w-72 rounded-[1.5rem] overflow-hidden bg-surface/50 border border-border/50">
-              <div className="absolute inset-0">
-                <World data={sampleArcs} globeConfig={globeConfig} />
-              </div>
+            <div
+              ref={globeRef}
+              className="relative h-40 w-40 sm:h-48 sm:w-48 md:h-60 md:w-60 lg:h-72 lg:w-72 rounded-[1.5rem] overflow-hidden bg-surface/50 border border-border/50"
+            >
+              <World
+                data={sampleArcs}
+                globeConfig={globeConfig}
+                width={size.width}
+                height={size.height}
+              />
             </div>
           </ScrollReveal>
         </div>

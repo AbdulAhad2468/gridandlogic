@@ -33,7 +33,7 @@ const navigation = [
 
 const information = [
   { label: "0337 4992211", href: "tel:+923374992211" },
-  { label: "0345 3186700 (WhatsApp)", href: "https://wa.me/923453186700" },
+  { label: "0337 4992211 (WhatsApp)", href: "https://wa.me/923374992211" },
   { label: "gridandlogic@gmail.com", href: "mailto:gridandlogic@gmail.com" },
 ];
 

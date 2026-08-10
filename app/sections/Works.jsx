@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Container } from "@/app/components/ui/Container";
 import { SectionTitle } from "@/app/components/ui/SectionTitle";
 import { StaggerReveal } from "@/app/components/animation/StaggerReveal";
@@ -41,20 +40,17 @@ const works = [
 function WorkCard({ work }) {
   return (
     <PinContainer title={work.title} href={work.href} className="w-full h-full" containerClassName="w-full h-full">
-      <div className={`relative overflow-hidden rounded-[1.25rem] bg-surface h-[260px] md:h-[320px] w-full ${work.className}`}>
-        <Image
-          src={work.image}
-          alt={work.title}
-          fill
-          unoptimized
-          className="object-cover transition-transform duration-700 group-hover/pin:scale-105"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 p-6 md:p-8">
-          <h3 className="text-xl md:text-2xl font-semibold text-white">{work.title}</h3>
-          <p className="mt-1 text-sm text-white/70">{work.category}</p>
+      <div className="flex basis-full flex-col p-4 tracking-tight text-white/50 sm:basis-1/2 w-full h-[20rem] rounded-2xl border border-white/10 bg-surface/80">
+        <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-white">
+          {work.title}
+        </h3>
+        <div className="text-base !m-0 !p-0 font-normal">
+          <span className="text-white/60">{work.category}</span>
         </div>
+        <div
+          className="flex flex-1 w-full rounded-lg mt-4 bg-cover bg-center"
+          style={{ backgroundImage: `url(${work.image})` }}
+        />
       </div>
     </PinContainer>
   );

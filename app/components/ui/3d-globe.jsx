@@ -42,7 +42,7 @@ export function Globe3D({ markers, config, onMarkerClick, onMarkerHover }) {
       scale: 1.2,
       mapSamples: 16000,
       mapBrightness: 7,
-      baseColor: [0.05, 0.05, 0.08],
+      baseColor: [0.15, 0.15, 0.25],
       markerColor: hexToRgb(config?.markerColor) || [0.18, 0.83, 0.75],
       glowColor: hexToRgb(config?.atmosphereColor) || [0.31, 0.78, 0.47],
       offset: [0, 0],
@@ -82,13 +82,12 @@ export function Globe3D({ markers, config, onMarkerClick, onMarkerHover }) {
       window.removeEventListener("resize", onResize);
       globe.destroy();
     };
-  }, [markers, config]);
+  }, [JSON.stringify(markers), JSON.stringify(config)]);
 
   return (
     <canvas
       ref={canvasRef}
       className="h-full w-full opacity-0 transition-opacity duration-1000"
-      style={{ aspectRatio: 1 }}
     />
   );
 }

@@ -41,21 +41,6 @@ export function Testimonials() {
               </Card>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.2}>
-              <div className="flex flex-wrap items-center gap-4">
-                <Card className="flex items-center gap-3 px-5 py-3">
-                  <LogoIcon />
-                  <span className="text-base font-bold text-white">Pixel Nest</span>
-                </Card>
-                <Card className="flex items-center gap-4 px-5 py-3">
-                  <span className="text-3xl font-bold text-white">91%</span>
-                  <div className="text-xs leading-tight text-white/80">
-                    <span className="block">Client</span>
-                    <span className="block">Satisfaction</span>
-                  </div>
-                </Card>
-              </div>
-            </ScrollReveal>
           </div>
 
           <ScrollReveal delay={0.15} className="relative">

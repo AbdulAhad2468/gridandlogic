@@ -106,14 +106,6 @@ export function Hero() {
 
         <div className="mt-8 flex flex-col lg:flex-row items-end justify-between gap-10">
           <div ref={bottomCardsRef} className="flex flex-col gap-4 max-w-sm">
-            <Card className="flex items-center gap-4 px-5 py-4 w-fit">
-              <span className="text-2xl font-bold text-white">31K</span>
-              <div className="text-xs leading-tight text-white/80">
-                <span className="block font-medium">Trusted</span>
-                <span className="block">Agents</span>
-              </div>
-            </Card>
-
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Card className="px-5 py-4">
                 <p className="text-sm text-white/80 max-w-[240px]">
@@ -127,6 +119,14 @@ export function Hero() {
               </Card>
               <Button className="shrink-0" onClick={() => { if (typeof window !== "undefined") window.location.href = "mailto:gridandlogic@gmail.com?subject=Grid%20and%20Logic%20for%20call"; }}>Book a call</Button>
             </div>
+
+            <Card className="flex items-center gap-4 px-5 py-4 w-fit mt-2">
+              <span className="text-2xl font-bold text-white">31K</span>
+              <div className="text-xs leading-tight text-white/80">
+                <span className="block font-medium">Trusted</span>
+                <span className="block">Agents</span>
+              </div>
+            </Card>
           </div>
 
           <h2

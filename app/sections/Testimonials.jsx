@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { Container } from "@/app/components/ui/Container";
 import { Card } from "@/app/components/ui/Card";
 import { SectionTitle } from "@/app/components/ui/SectionTitle";
 import { ScrollReveal } from "@/app/components/animation/ScrollReveal";
+import { Globe3D } from "@/app/components/ui/3d-globe";
 
 function LogoIcon() {
   return (
@@ -59,16 +59,20 @@ export function Testimonials() {
           </div>
 
           <ScrollReveal delay={0.15} className="relative">
-            <div className="relative aspect-[4/5] lg:aspect-[4/5] w-full max-w-md mx-auto rounded-[1.5rem] overflow-hidden">
-              <Image
-                src="/images/ammar.png"
-                alt="Ammar, CEO of Pixel Nest"
-                fill
-                className="object-cover"
-                unoptimized
-                sizes="(max-width: 1024px) 100vw, 50vw"
+            <div className="relative aspect-square w-full max-w-md mx-auto rounded-[1.5rem] overflow-hidden bg-surface/50 border border-border/50">
+              <Globe3D
+                markers={[
+                  { lat: 40.7128, lng: -74.006 },
+                  { lat: 51.5074, lng: -0.1278 },
+                  { lat: 35.6762, lng: 139.6503 },
+                  { lat: 31.2304, lng: 121.4737 },
+                ]}
+                config={{
+                  atmosphereColor: "#2dd4bf",
+                  markerColor: "#2dd4bf",
+                  autoRotateSpeed: 0.005,
+                }}
               />
-              <div className="absolute inset-0 gradient-glow" />
             </div>
           </ScrollReveal>
         </div>

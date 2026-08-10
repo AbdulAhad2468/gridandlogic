@@ -40,7 +40,7 @@ const works = [
 function WorkCard({ work }) {
   return (
     <PinContainer title={work.title} href={work.href} className="w-full h-full" containerClassName="w-full h-[24rem]">
-      <div className="flex basis-full flex-col p-4 tracking-tight text-white/50 sm:basis-1/2 w-full h-[22rem] rounded-2xl border border-white/10 bg-surface/80">
+      <div className="flex basis-full flex-col p-4 tracking-tight text-white/50 sm:basis-1/2 w-[20rem] h-[20rem] rounded-2xl border border-white/10 bg-surface/80">
         <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-white">
           {work.title}
         </h3>

@@ -89,7 +89,7 @@ function LogoIcon() {
 
 export function Testimonials() {
   const globeRef = useRef(null);
-  const [size, setSize] = useState({ width: 160, height: 160 });
+  const [size, setSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     if (!globeRef.current) return;
@@ -140,12 +140,14 @@ export function Testimonials() {
               ref={globeRef}
               className="relative h-40 w-40 sm:h-48 sm:w-48 md:h-60 md:w-60 lg:h-72 lg:w-72 rounded-[1.5rem] overflow-hidden bg-surface/50 border border-border/50"
             >
-              <World
-                data={sampleArcs}
-                globeConfig={globeConfig}
-                width={size.width}
-                height={size.height}
-              />
+              {size.width > 0 && size.height > 0 && (
+                <World
+                  data={sampleArcs}
+                  globeConfig={globeConfig}
+                  width={size.width}
+                  height={size.height}
+                />
+              )}
             </div>
           </ScrollReveal>
         </div>

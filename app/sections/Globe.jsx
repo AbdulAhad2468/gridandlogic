@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 
@@ -77,6 +77,25 @@ const sampleArcs = [
 ];
 
 export function Globe() {
+  const globeRef = useRef(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    if (!globeRef.current) return;
+    const update = () => {
+      if (globeRef.current) {
+        setSize({
+          width: globeRef.current.clientWidth,
+          height: globeRef.current.clientHeight,
+        });
+      }
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(globeRef.current);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <section className="relative flex flex-row items-center justify-center py-20 h-[80vh] md:h-[50rem] bg-background w-full overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full px-4">
@@ -94,8 +113,15 @@ export function Globe() {
           </p>
         </motion.div>
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-30" />
-        <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
-          <World data={sampleArcs} globeConfig={globeConfig} />
+        <div ref={globeRef} className="absolute w-full -bottom-20 h-72 md:h-full z-10">
+          {size.width > 0 && size.height > 0 && (
+            <World
+              data={sampleArcs}
+              globeConfig={globeConfig}
+              width={size.width}
+              height={size.height}
+            />
+          )}
         </div>
       </div>
     </section>

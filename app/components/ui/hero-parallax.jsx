@@ -30,10 +30,10 @@ export function HeroParallax({ products, className }) {
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden py-20">
         <div className="z-10 text-center mb-10 px-6">
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
             Trusted by forward-thinking teams
           </h2>
-          <p className="mt-3 text-white/60 max-w-xl mx-auto">
+          <p className="mt-3 text-foreground/60 max-w-xl mx-auto">
             A selection of products and brands we have helped ship.
           </p>
         </div>
@@ -78,7 +78,7 @@ function ProductCard({ product }) {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       <div className="absolute bottom-0 left-0 p-4">
-        <h3 className="text-white font-semibold">{product.title}</h3>
+        <h3 className="text-foreground font-semibold">{product.title}</h3>
       </div>
     </a>
   );

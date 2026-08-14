@@ -119,16 +119,16 @@ export function Testimonials() {
             <ScrollReveal delay={0.1}>
               <Card variant="primary" className="p-6 md:p-8">
                 <blockquote>
-                  <p className="text-xl md:text-2xl font-semibold text-white leading-snug">
+                  <p className="text-xl md:text-2xl font-semibold text-foreground leading-snug">
                     "Creative, reliable, and always one step ahead."
                   </p>
-                  <p className="mt-4 text-sm leading-relaxed text-white/70 max-w-md">
+                  <p className="mt-4 text-sm leading-relaxed text-foreground/70 max-w-md">
                     Working with Grid &amp; Logic transformed our online presence. They built our website, grew our social channels, and delivered beautiful design.
                   </p>
                 </blockquote>
                 <div className="mt-6">
-                  <p className="font-semibold text-white">Ammar</p>
-                  <p className="text-sm text-white/70">CEO of Pixel Nest</p>
+                  <p className="font-semibold text-foreground">Ammar</p>
+                  <p className="text-sm text-foreground/70">CEO of Pixel Nest</p>
                 </div>
               </Card>
             </ScrollReveal>

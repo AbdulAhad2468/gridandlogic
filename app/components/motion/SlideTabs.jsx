@@ -102,7 +102,7 @@ const Tab = ({ item, children, setPosition, setHovering, setRef }) => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       }}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white md:px-5 md:py-3 md:text-base"
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-foreground md:px-5 md:py-3 md:text-base"
     >
       {children}
     </li>

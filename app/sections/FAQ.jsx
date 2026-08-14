@@ -37,7 +37,7 @@ export function FAQ() {
       <Container>
         <ScrollReveal>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground text-center mb-12">
               Frequently asked questions
             </h2>
             <div className="flex flex-col gap-4">
@@ -50,7 +50,7 @@ export function FAQ() {
                     onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                     className="flex w-full items-center justify-between p-5 text-left"
                   >
-                    <span className="font-medium text-white">{faq.question}</span>
+                    <span className="font-medium text-foreground">{faq.question}</span>
                     {openIndex === i ? (
                       <Minus className="h-4 w-4 text-primary" />
                     ) : (
@@ -58,7 +58,7 @@ export function FAQ() {
                     )}
                   </button>
                   {openIndex === i && (
-                    <div className="px-5 pb-5 text-sm text-white/70 leading-relaxed">
+                    <div className="px-5 pb-5 text-sm text-foreground/70 leading-relaxed">
                       {faq.answer}
                     </div>
                   )}

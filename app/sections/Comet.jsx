@@ -13,7 +13,7 @@ export function Comet() {
           <CometCard className="max-w-sm">
             <button
               type="button"
-              className="flex w-80 cursor-pointer flex-col items-stretch rounded-2xl border-0 bg-[#1F2121] p-2 md:p-4"
+              className="flex w-80 cursor-pointer flex-col items-stretch rounded-2xl border-0 bg-surface-elevated p-2 md:p-4"
               aria-label="View invite F7RA"
               style={{ transformStyle: "preserve-3d" }}
             >
@@ -24,14 +24,14 @@ export function Comet() {
                     alt="Invite background"
                     fill
                     unoptimized
-                    className="absolute inset-0 h-full w-full rounded-2xl bg-black object-cover contrast-75"
+                    className="absolute inset-0 h-full w-full rounded-2xl bg-surface object-cover contrast-75"
                     sizes="320px"
                   />
                 </div>
               </div>
-              <div className="mt-2 flex flex-shrink-0 items-center justify-between p-4 font-mono text-white">
+              <div className="mt-2 flex flex-shrink-0 items-center justify-between p-4 font-mono text-foreground">
                 <div className="text-xs">Comet Invitation</div>
-                <div className="text-xs text-gray-300 opacity-50">#F7RA</div>
+                <div className="text-xs text-foreground/50">#F7RA</div>
               </div>
             </button>
           </CometCard>

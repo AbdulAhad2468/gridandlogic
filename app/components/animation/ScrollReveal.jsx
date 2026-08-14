@@ -18,6 +18,8 @@ export function ScrollReveal({
   x = 60,
   direction = "up",
   once = true,
+  blur = false,
+  scale = 1,
   as: Component = "div",
 }) {
   const ref = useRef(null);
@@ -31,6 +33,8 @@ export function ScrollReveal({
       else if (direction === "right") from.x = x;
       else if (direction === "down") from.y = -y;
       else from.y = y;
+      if (scale !== 1) from.scale = scale;
+      if (blur) from.filter = "blur(12px)";
 
       gsap.from(ref.current, {
         ...from,
@@ -46,7 +50,7 @@ export function ScrollReveal({
     }, ref);
 
     return () => ctx.revert();
-  }, [delay, duration, x, y, direction, once]);
+  }, [delay, duration, x, y, direction, once, blur, scale]);
 
   return (
     <Component ref={ref} className={cn(className)}>

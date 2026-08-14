@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/app/components/ui/Container";
-import { ScrollReveal } from "@/app/components/animation/ScrollReveal";
+import { ChevronUp } from "lucide-react";
 
 const SocialIcons = {
   Facebook: () => (
@@ -23,89 +23,128 @@ const SocialIcons = {
   ),
 };
 
-const navigation = [
-  { label: "Work", href: "#works" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
+const navigate = [
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#works" },
   { label: "Contact", href: "#contact" },
 ];
 
-const information = [
+const serviceLinks = [
+  "3D Configurators",
+  "Digital Marketing",
+  "Web Development",
+  "Real-Time Tours",
+];
+
+const connect = [
   { label: "0337 4992211", href: "tel:+923374992211" },
   { label: "0337 4992211 (WhatsApp)", href: "https://wa.me/923374992211" },
   { label: "gridandlogic@gmail.com", href: "mailto:gridandlogic@gmail.com" },
 ];
 
+const scrollTop = () => {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
+
 export function Footer() {
   return (
-    <footer className="relative bg-surface text-white border-t border-border/50 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+    <footer
+      className="relative border-t border-border bg-surface"
+      style={{
+        backgroundImage:
+          "linear-gradient(to top, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.2) 15%, rgba(37,99,235,0.05) 35%, transparent 70%)",
+      }}
+    >
       <Container className="relative z-10">
-        <ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 lg:py-20">
-            <div className="lg:col-span-4">
-              <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white">
-                <Image src="/Grid%20%26%20Logic%20(LOGO).svg" alt="Grid &amp; Logic Logo" width={36} height={36} unoptimized style={{ filter: "brightness(0) saturate(100%) invert(1) sepia(1) saturate(5) hue-rotate(180deg)" }} />
-                Grid &amp; Logic
-              </Link>
-              <p className="mt-4 text-sm leading-relaxed text-white/80 max-w-xs">
-                Grid &amp; Logic designs and builds 3D websites, product configurators, and ecommerce for growing brands — all built to convert.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-16">
+          <div>
+            <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
+              <Image src="/Grid%20%26%20Logic%20(LOGO).png" alt="Grid &amp; Logic Logo" width={32} height={32} unoptimized />
+              Grid &amp; Logic
+            </Link>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/70 max-w-xs">
+              We design and build 3D websites, product configurators, and ecommerce stores that help brands stand out and convert.
+            </p>
+          </div>
 
-            <div className="lg:col-span-2">
-              <h4 className="text-base font-semibold text-white">Navigation</h4>
-              <ul className="mt-5 flex flex-col gap-3">
-                {navigation.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/80 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="lg:col-span-4">
-              <h4 className="text-base font-semibold text-white">Information</h4>
-              <ul className="mt-5 flex flex-col gap-3">
-                {information.map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href={item.href}
-                      className="text-sm text-white/80 hover:text-white transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex items-center gap-3">
-                {[
-                  { Icon: SocialIcons.Facebook, href: "https://www.facebook.com/profile.php?id=61592258005096", label: "Facebook" },
-                  { Icon: SocialIcons.Instagram, href: "https://www.instagram.com/gridandlogic/", label: "Instagram" },
-                  { Icon: SocialIcons.Threads, href: "https://www.threads.com/@gridandlogic", label: "Threads" },
-                ].map(({ Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
-                    aria-label={label}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground">Navigate</h4>
+            <ul className="mt-4 flex flex-col gap-2">
+              {navigate.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-foreground/70 hover:text-foreground transition-colors"
                   >
-                    <Icon />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground">Services</h4>
+            <ul className="mt-4 flex flex-col gap-2">
+              {serviceLinks.map((label) => (
+                <li key={label} className="text-sm text-foreground/70">
+                  {label}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground">Connect</h4>
+            <ul className="mt-4 flex flex-col gap-2">
+              {connect.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={item.href}
+                    className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+                  >
+                    {item.label}
                   </a>
-                ))}
-              </div>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-5 flex items-center gap-3">
+              {[
+                { Icon: SocialIcons.Facebook, href: "https://www.facebook.com/profile.php?id=61592258005096", label: "Facebook" },
+                { Icon: SocialIcons.Instagram, href: "https://www.instagram.com/gridandlogic/", label: "Instagram" },
+                { Icon: SocialIcons.Threads, href: "https://www.threads.com/@gridandlogic", label: "Threads" },
+              ].map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground/30 text-foreground transition-colors hover:bg-foreground/10"
+                  aria-label={label}
+                >
+                  <Icon />
+                </a>
+              ))}
             </div>
           </div>
-        </ScrollReveal>
+        </div>
+
+        <div className="relative border-t border-border py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-foreground/60">
+            &copy; {new Date().getFullYear()} Grid &amp; Logic. All rights reserved.
+          </p>
+          <button
+            onClick={scrollTop}
+            aria-label="Scroll to top"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-surface-elevated transition-transform hover:-translate-y-1"
+          >
+            <ChevronUp className="h-5 w-5" />
+          </button>
+        </div>
       </Container>
     </footer>
   );

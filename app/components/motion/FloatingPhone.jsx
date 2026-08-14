@@ -33,7 +33,7 @@ const FloatingPhoneInner = () => {
           duration: 2,
           ease: "easeInOut",
         }}
-        className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
+        className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-foreground/20 border-l-surface border-t-surface bg-surface-elevated p-1 pl-[3px] pt-[3px]"
       >
         <HeaderBar />
         <Screen />
@@ -45,10 +45,10 @@ const FloatingPhoneInner = () => {
 const HeaderBar = () => {
   return (
     <>
-      <div className="absolute left-[50%] top-2.5 z-10 h-2 w-16 -translate-x-[50%] rounded-md bg-neutral-900"></div>
+      <div className="absolute left-[50%] top-2.5 z-10 h-2 w-16 -translate-x-[50%] rounded-md bg-foreground"></div>
       <div className="absolute right-3 top-2 z-10 flex gap-2">
-        <FiWifi className="text-neutral-600" />
-        <FiBatteryCharging className="text-neutral-600" />
+        <FiWifi className="text-surface/80" />
+        <FiBatteryCharging className="text-surface/80" />
       </div>
     </>
   );

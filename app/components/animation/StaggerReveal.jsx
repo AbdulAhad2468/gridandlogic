@@ -18,6 +18,8 @@ export function StaggerReveal({
   y = 40,
   once = true,
   start = "top 85%",
+  blur = false,
+  scale = 1,
   as: Component = "div",
 }) {
   const containerRef = useRef(null);
@@ -29,9 +31,12 @@ export function StaggerReveal({
       const items = containerRef.current?.querySelectorAll("[data-animate]");
       if (!items?.length) return;
 
+      const from = { y, opacity: 0 };
+      if (scale !== 1) from.scale = scale;
+      if (blur) from.filter = "blur(12px)";
+
       gsap.from(items, {
-        y,
-        opacity: 0,
+        ...from,
         duration,
         stagger,
         ease: "power3.out",
@@ -44,7 +49,7 @@ export function StaggerReveal({
     }, containerRef);
 
     return () => ctx.revert();
-  }, [stagger, duration, y, once, start]);
+  }, [stagger, duration, y, once, start, blur, scale]);
 
   const items = Children.toArray(children);
 

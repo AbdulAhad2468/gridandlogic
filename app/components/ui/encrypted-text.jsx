@@ -41,7 +41,7 @@ export function EncryptedText({
               isRevealed ? revealedClassName : encryptedClassName
             )}
           >
-            {isRevealed ? char : CHARS[Math.floor(Math.random() * CHARS.length)]}
+            {isRevealed ? char : CHARS[(idx * 31 + 17) % CHARS.length]}
           </span>
         );
       })}

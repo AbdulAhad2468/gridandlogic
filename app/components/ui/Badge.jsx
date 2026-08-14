@@ -5,7 +5,7 @@ export function Badge({ children, className, variant = "default" }) {
     <span
       className={cn(
         "inline-flex items-center rounded-full border px-4 py-2 text-xs font-medium",
-        variant === "default" && "border-border-strong bg-surface text-white",
+        variant === "default" && "border-border-strong bg-surface text-foreground",
         variant === "primary" && "border-primary/40 bg-surface text-primary",
         className
       )}

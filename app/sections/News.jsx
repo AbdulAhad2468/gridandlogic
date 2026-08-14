@@ -51,11 +51,11 @@ export function News() {
                 />
               </div>
               <div className="mt-5 flex flex-col flex-1">
-                <div className="mb-3 text-xs text-white/50">
+                <div className="mb-3 text-xs text-foreground/50">
                   {article.date} <span className="mx-2">·</span> {article.category}
                 </div>
-                <h3 className="text-lg font-semibold text-white leading-snug">{article.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/60 flex-1">{article.excerpt}</p>
+                <h3 className="text-lg font-semibold text-foreground leading-snug">{article.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/60 flex-1">{article.excerpt}</p>
               </div>
             </Card>
           ))}

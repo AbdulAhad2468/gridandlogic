@@ -21,9 +21,9 @@ export function ArrowButton({
     <button
       className={cn(
         "inline-flex items-center justify-center rounded-full transition-all duration-300 hover:scale-105",
-        variant === "default" && "border border-white/30 text-white hover:bg-white/10",
+        variant === "default" && "border border-foreground/30 text-foreground hover:bg-foreground/10",
         variant === "primary" && "bg-primary text-primary-foreground hover:bg-primary/90",
-        variant === "outline" && "border border-border-strong bg-surface text-white hover:border-white/40",
+        variant === "outline" && "border border-border-strong bg-surface text-foreground hover:border-foreground/40",
         sizes[size],
         className
       )}

@@ -42,11 +42,11 @@ export function Features() {
   return (
     <section className="relative z-20 mx-auto max-w-7xl py-20 lg:py-28">
       <div className="px-8">
-        <h4 className="mx-auto max-w-5xl text-center text-3xl font-medium tracking-tight text-white lg:text-5xl lg:leading-tight">
+        <h4 className="mx-auto max-w-5xl text-center text-3xl font-medium tracking-tight text-foreground lg:text-5xl lg:leading-tight">
           Packed with thousands of features
         </h4>
 
-        <p className="mx-auto my-4 max-w-2xl text-center text-sm font-normal text-white/50 lg:text-base">
+        <p className="mx-auto my-4 max-w-2xl text-center text-sm font-normal text-foreground/50 lg:text-base">
           From Image generation to video generation, Everything AI has APIs for
           literally everything. It can even create this website copy for you.
         </p>
@@ -76,7 +76,7 @@ const FeatureCard = ({ children, className }) => {
 
 const FeatureTitle = ({ children }) => {
   return (
-    <p className="mx-auto max-w-5xl text-left text-xl tracking-tight text-white md:text-2xl md:leading-snug">
+    <p className="mx-auto max-w-5xl text-left text-xl tracking-tight text-foreground md:text-2xl md:leading-snug">
       {children}
     </p>
   );
@@ -87,7 +87,7 @@ const FeatureDescription = ({ children }) => {
     <p
       className={cn(
         "mx-auto max-w-4xl text-left text-sm md:text-base",
-        "font-normal text-white/50",
+        "font-normal text-foreground/50",
         "my-2 max-w-sm text-left md:text-sm"
       )}
     >

@@ -1,26 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #02020a;
-  --foreground: #e2e8f0;
-  --primary: #2dd4bf;
-  --primary-foreground: #02020a;
+  --background: #050511;
+  --foreground: #f8fafc;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
   --surface: #0a0a16;
   --surface-elevated: #12121f;
-  --accent: #a855f7;
+  --accent: #3b82f6;
   --muted: #94a3b8;
-  --border: rgba(45, 212, 191, 0.15);
-  --border-strong: rgba(45, 212, 191, 0.35);
+  --border: rgba(37, 99, 235, 0.15);
+  --border-strong: rgba(37, 99, 235, 0.35);
   --radius: 1.25rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
@@ -62,11 +63,11 @@ body {
   }
 
   .gradient-glow {
-    background: radial-gradient(circle at 70% 50%, rgba(45, 212, 191, 0.2) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 65%);
+    background: radial-gradient(circle at 70% 50%, rgba(37, 99, 235, 0.2) 0%, rgba(59, 130, 246, 0.08) 45%, transparent 65%);
   }
 
   .gradient-fade {
-    background: linear-gradient(180deg, rgba(2, 2, 10, 0) 0%, rgba(2, 2, 10, 0.85) 100%);
+    background: linear-gradient(180deg, rgba(5, 5, 17, 0) 0%, rgba(5, 5, 17, 0.85) 100%);
   }
 }
 
@@ -98,11 +99,11 @@ html.lenis body {
 }
 
 .tilt-3d:hover {
-  transform: perspective(1000px) rotateY(10deg) rotateX(-6deg) scale(1.03);
+  transform: perspective(1000px) rotateY(4deg) rotateX(-2deg) scale(1.02);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(45, 212, 191, 0.2),
-    0 0 60px rgba(45, 212, 191, 0.1);
+    0 16px 32px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(37, 99, 235, 0.2),
+    0 0 40px rgba(37, 99, 235, 0.12);
 }
 
 .text-3d {
@@ -110,14 +111,14 @@ html.lenis body {
   text-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08),
     0 2px 0 rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(45, 212, 191, 0.3),
-    0 0 40px rgba(168, 85, 247, 0.2);
+    0 0 20px rgba(37, 99, 235, 0.3),
+    0 0 40px rgba(59, 130, 246, 0.2);
 }
 
 .glow-3d {
   box-shadow:
-    0 0 40px rgba(45, 212, 191, 0.12),
-    0 0 80px rgba(168, 85, 247, 0.08);
+    0 0 40px rgba(37, 99, 235, 0.12),
+    0 0 80px rgba(59, 130, 246, 0.08);
 }
 
 .perspective-1000 {
@@ -131,5 +132,46 @@ html.lenis body {
 
 @keyframes float3d {
   0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
-  50% { transform: translateY(-20px) rotateX(10deg) rotateY(20deg); }
+  50% { transform: translateY(-12px) rotateX(4deg) rotateY(6deg); }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(18, 18, 31, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }

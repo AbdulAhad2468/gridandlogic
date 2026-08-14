@@ -1,15 +1,13 @@
 import { Header } from "@/app/sections/Header";
 import { Hero } from "@/app/sections/Hero";
 import { About } from "@/app/sections/About";
-import { Globe } from "@/app/sections/Globe";
+import { Stats } from "@/app/sections/Stats";
 import { Services } from "@/app/sections/Services";
 import { Works } from "@/app/sections/Works";
-import { Process } from "@/app/sections/Process";
-import { Testimonials } from "@/app/sections/Testimonials";
-import { News } from "@/app/sections/News";
+import { Workflow } from "@/app/sections/Workflow";
+import { Globe } from "@/app/sections/Globe";
 import { CTA } from "@/app/sections/CTA";
 import { Footer } from "@/app/sections/Footer";
-import { ScrollReveal } from "@/app/components/animation/ScrollReveal";
 
 export default function Home() {
   return (
@@ -17,28 +15,13 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <ScrollReveal direction="right">
-          <About />
-        </ScrollReveal>
+        <About />
+        <Stats />
+        <Services />
+        <Works />
+        <Workflow />
         <Globe />
-        <ScrollReveal direction="left">
-          <Services />
-        </ScrollReveal>
-        <ScrollReveal direction="right">
-          <Works />
-        </ScrollReveal>
-        <ScrollReveal direction="left">
-          <Process />
-        </ScrollReveal>
-        <ScrollReveal direction="right">
-          <Testimonials />
-        </ScrollReveal>
-        <ScrollReveal direction="left">
-          <News />
-        </ScrollReveal>
-        <ScrollReveal direction="right">
-          <CTA />
-        </ScrollReveal>
+        <CTA />
       </main>
       <Footer />
     </div>

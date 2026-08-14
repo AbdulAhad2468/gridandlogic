@@ -47,14 +47,14 @@ export function Process() {
               >
                 <span
                   className={`text-5xl md:text-6xl font-bold leading-none ${
-                    step.active ? "text-primary" : "text-white/30"
+                    step.active ? "text-primary" : "text-foreground/30"
                   }`}
                 >
                   {step.number}
                 </span>
                 <div className="mt-6">
-                  <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                  <p className="mt-1 text-sm text-white/70">{step.description}</p>
+                  <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                  <p className="mt-1 text-sm text-foreground/70">{step.description}</p>
                 </div>
               </Card>
             ))}
@@ -65,7 +65,7 @@ export function Process() {
               <SectionTitle>Our Work Process</SectionTitle>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-base leading-relaxed text-white/70 max-w-md">
+              <p className="text-base leading-relaxed text-foreground/70 max-w-md">
                 We follow a simple, proven process: discover your needs, define the right solution, design the experience, and develop the final product.
               </p>
             </ScrollReveal>
